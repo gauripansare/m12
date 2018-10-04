@@ -1,0 +1,151 @@
+﻿@media screen and (min-width: 320px){
+#header-title {
+    min-height: 0px;
+}
+.question-band.summaryoptions {
+    margin-left: 9% !important;
+}
+}
+@media screen and (max-width : 1024px) {
+}
+
+@media screen and (max-width:940px) {
+}
+
+@media screen and (max-width: 912px) {
+    .intro-content {
+        margin: 0% 9%;
+    }
+    
+    .question-band{
+        margin-left: 9%;
+    }
+}
+
+@media screen and (max-width: 893px) {
+    .intro-content {
+        margin: 0% 8%;
+    }
+   
+    .question-band{
+        margin-left: 9%;
+    }
+    
+
+}
+
+@media screen and (max-width: 880px) {
+    .intro-content {
+        margin: 0% 7.5%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .intro-content {
+        margin: 0% 6%;
+    }
+
+    .summary-content {
+            margin: 0 10% !important;
+    }      
+}
+
+@media screen and (max-width : 768px) {
+    .intro-content {
+        margin: 0% 4%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+    h2.pageheading{
+        margin:0 4%;
+    }
+    
+    .question-band{
+        margin-left: 13%;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .header-informarion p, .header-informarion div, .header-informarion span, .closehintlink {
+        font-size: 13px;
+    }
+    h2.pageheading{
+        margin:0 2%;
+    }
+    #header-progress .progress{
+        width:80%;
+    }
+    #header-progress .background{
+        width:90%;
+    }
+    .header-content{
+        width:90%;
+    }
+    .header-informarion{
+        width:80%;
+    }
+    .hintwrapper{
+        width:90%
+    }
+   
+    .question-band{
+        margin-left: 13%;
+    }
+    .questioninnerwrapper{
+        padding-right: 7px;
+    }
+
+}
+
+@media screen and (max-width : 480px) {
+
+    #header-title:not(.startpage) img {
+        /*display: none;*/
+      
+    }
+    .statpageheadmargin{
+        /*margin-top:60px !important;*/   
+    }
+  
+    .question-band{
+        margin-left: 17%;
+    }
+}
+
+@media screen and (max-width : 460px) {
+    .intro-content {
+        margin: 0% 3%;
+    }
+    .summary-content {
+        margin: 0 11% !important;
+    }
+    .question-band{
+        margin-left: 19%;
+    }
+}
+
+@media screen and (max-width: 445px) {
+    .intro-content {
+        margin: 0% 2%;
+    }
+  
+    .question-band{
+        margin-left: 21%;
+    }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media screen and (max-width : 440px) {
+}
+
+@media screen and (max-width : 420px) {
+}
