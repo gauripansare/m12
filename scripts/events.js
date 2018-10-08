@@ -1,6 +1,9 @@
 var hotspotclicked = false;;
 var hotspot;
 $(document).on("click", ".divHotSpot", function (event) {
+    if(_Navigator.IsPresenterMode()){
+        return;
+    }
     event.preventDefault();
     $(this).k_disable()
     if (hotspotclicked || _Navigator.IsAnswered())
@@ -83,7 +86,7 @@ $(document).on('click', ".activityimg", function (event) {
 
 $(document).on('click', ".startbtn", function (event) {
     _Navigator.Next();
-   // _Navigator.LoadPage("p14");
+    //_Navigator.LoadPage("p16");
 });
 $(document).on('click', ".reviewsubmit", function (event) {
     _Navigator.Next();
@@ -119,3 +122,6 @@ $(document).on("click", ".assessmentSubmit", function (event) {
 
 
 
+$(document).on('click', ".inputcircle", function (event) {
+    $(this).next(".inpputtext").trigger( "click" );
+});

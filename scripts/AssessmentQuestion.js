@@ -109,7 +109,7 @@
                             },
                             {
                                 "OptionId": "2",
-                                "OptionText": "flowchart",
+                                "OptionText": "Flowchart",
                                 "IsCorrect": false,
                             },
                             {
