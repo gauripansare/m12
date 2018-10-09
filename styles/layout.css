@@ -8,9 +8,9 @@
 
 body {
     display: block;
-    margin: 0px 2px;
     color: #333333;
     box-sizing: border-box;
+    margin-top :2px;
 }
 
 .no-focus *:focus {
