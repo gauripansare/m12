@@ -142,6 +142,7 @@ var _PData = {
                 "topPX": "47px",
                 "leftPX": "249.5px",
                  action:"next",
+                 accessText: "Run",
               }
             ]
         }
@@ -160,6 +161,7 @@ var _PData = {
                 "topPX": "46.00694274902344px",
                 "leftPX": "247.44793701171875px",
                  action:"inputcheck",
+                 accessText: "Run",
               }
             ]
         },

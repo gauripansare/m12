@@ -22,6 +22,7 @@ var _Navigator = (function () {
             nextPageId: "p3",
             dataurl: "p2.htm",
             hasActivity: false,
+            accessText: "Document 1 - Word open",
         },
         "p3": {
             pageId: "p3",
@@ -30,7 +31,7 @@ var _Navigator = (function () {
             dataurl: "p3.htm",
             hinturl: "hintp3.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p4": {
             pageId: "p4",
@@ -39,7 +40,7 @@ var _Navigator = (function () {
             dataurl: "p4.htm",
             hinturl: "hintp4.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p5": {
             pageId: "p5",
@@ -48,7 +49,7 @@ var _Navigator = (function () {
             dataurl: "p5.htm",
             hinturl: "hintp5.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p6": {
             pageId: "p6",
@@ -57,7 +58,7 @@ var _Navigator = (function () {
             dataurl: "p6.htm",
             hinturl: "hintp6.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p7": {
             pageId: "p7",
@@ -66,7 +67,7 @@ var _Navigator = (function () {
             dataurl: "p7.htm",
             hinturl: "hintp7.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p8": {
             pageId: "p8",
@@ -75,7 +76,7 @@ var _Navigator = (function () {
             dataurl: "p8.htm",
             hinturl: "hintp8.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p9": {
             pageId: "p9",
@@ -84,7 +85,7 @@ var _Navigator = (function () {
             dataurl: "p9.htm",
             hinturl: "hintp9.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p10": {
             pageId: "p10",
@@ -93,7 +94,7 @@ var _Navigator = (function () {
             dataurl: "p10.htm",
             hinturl: "hintp10.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p11": {
             pageId: "p11",
@@ -102,7 +103,7 @@ var _Navigator = (function () {
             dataurl: "p11.htm",
             hinturl: "hintp11.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p12": {
             pageId: "p12",
@@ -111,7 +112,7 @@ var _Navigator = (function () {
             dataurl: "p12.htm",
             hinturl: "hintp12.htm",
             hasActivity: true,
-
+            accessText: "Document 1 - Word open",
         },
         "p13": {
             pageId: "p13",
@@ -120,7 +121,7 @@ var _Navigator = (function () {
             dataurl: "p13.htm",
             hinturl: "hintp13.htm",
             hasActivity: true,
-
+            accessText: "Microsoft Visual Studio IDE",
         },
         "p14": {
             pageId: "p14",
@@ -129,8 +130,7 @@ var _Navigator = (function () {
             dataurl: "p14.htm",
             dfdbk: true,
             hasActivity: false,
-            
-
+            accessText: "Microsoft Visual Studio IDE",
         },
         "p15": {
             pageId: "p15",
@@ -139,7 +139,7 @@ var _Navigator = (function () {
             dataurl: "p15.htm",
             hinturl: "hintp15.htm",
             hasActivity: true,
-
+            accessText: "Microsoft Visual Studio IDE",
         },
         "p16":{
             pageId: "p16",
@@ -165,8 +165,9 @@ var _Navigator = (function () {
             $("#header-title").addClass("startpage");
         }
         _ModuleCommon.OnPageLoad();
-
-
+        if (_currentPageObject.accessText != undefined) {
+            $(".activityimg").attr("alt", _currentPageObject.accessText);
+        }
     }
     return {
         Get: function () {
@@ -232,19 +233,6 @@ var _Navigator = (function () {
                         {
                             showQuestion();
                         }
-                        if(_currentPageObject.pageId == "p2")
-                            setReader("titleheader");
-                        else
-                        {
-                            //if($("body").hasClass("no-focus"))
-                            {
-                                setReader("titleheader");
-                            }
-                            // else
-                            // {
-                            //     setReader("progressdiv");
-                            // }
-                        }
                         $("#hintdiv").show();
                         if(_currentPageObject.hinturl == undefined)
                         {
@@ -264,7 +252,12 @@ var _Navigator = (function () {
                             $(".hintlink").k_disable();
                         }
                         //_NData[_currentPageObject.pageId].isLoaded = true;
-                        //$("h2.pageheading").focus();
+                        if (_currentPageId == "p3") {
+                            $("#titleheader").focus();
+                        }
+                        else {
+                            $("#progressdiv").focus();
+                        }
                     });
                 })
             }
