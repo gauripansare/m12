@@ -177,7 +177,6 @@ var _Navigator = (function () {
             this.LoadPage("p1");
         },
         LoadPage: function (pageId, jsonObj) {
-            debugger;
             if (jsonObj == undefined) {
                 jsonObj = {};
             }
@@ -224,7 +223,6 @@ var _Navigator = (function () {
 
                 });
             } else {
-                debugger;
                 $(".main-content").fadeTo(250, 0.25, function () {
                     $(".main-content").load(pageUrl, function () {
                         $(this).fadeTo(600, 1)
@@ -300,25 +298,20 @@ var _Navigator = (function () {
             }
             if ( _currentPageObject.pageId == "p16")
             {
-               
              if ( typeof(currentQuestionIndex) !='undefined' && typeof(gRecordData.Questions) !='undefined'  && (currentQuestionIndex +1) < gRecordData.Questions.length ) {
                     currentQuestionIndex  = currentQuestionIndex + 1
                     $("#Questioninfo").show();
-                    showQuestion()
-                    
+                    showQuestion();
                     //this.UpdateProgressBar();
                     if(gRecordData.Status !="Completed")
                         {
                             $("#linknext").k_disable();    
                             $("#linkprevious").k_disable();
                         }
-    
-                }
-
+                    }
               else  if ( typeof(currentQuestionIndex) !='undefined' && typeof(gRecordData.Questions) !='undefined'  && (currentQuestionIndex +1) == gRecordData.Questions.length ) {
                     //this.UpdateProgressBar();
-                    // Show review instruction
-                    
+                    // Show review instructio
                         $(".intro-content-question").hide();
                         $(".questionwrapper").hide();
                         currentQuestionIndex  = currentQuestionIndex + 1;
@@ -327,17 +320,12 @@ var _Navigator = (function () {
 				        $("#Summary").load("pagedata/Summary.htm",function(){
                             showSummary()                           
                             $("#linkprevious").k_enable();
-                            
                         })
                         $("#climate-deal").css("margin-left","23%");
                         $("#linknext").k_disable();
-                        
-
-                }                
-          
+                }                    
 			}
             else {
-
                 this.LoadPage(_currentPageObject.nextPageId);
             }
         },

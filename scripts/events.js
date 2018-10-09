@@ -28,7 +28,6 @@ $(document).on("click", "#linknext", function (event) {
     _Navigator.Next();
 });
 $(document).on("click", ".hintlink", function (event) {
-    debugger;
     if ($(this).hasClass("expanded")) {
         $(".hintlink").removeClass("expanded")
         $(".hintlink").attr("aria-expanded", "false")

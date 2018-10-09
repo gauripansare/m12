@@ -66,7 +66,6 @@ function shuffle(array) {
 }
 var isFirstQAnswered = false
 function showQuestion(){
-	debugger;
 	//addCSS("styles/questionPlaceholder.css");
 	$(".question-band fieldset").empty();
 	$(".question-band fieldset").append("<legend aria-label='Options'></legend>")

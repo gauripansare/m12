@@ -9,6 +9,22 @@
         if (this.hasClass('disabled')) { return true; } else { return false; }
     }
 });
+
+var userAgentCustom = window.navigator.userAgent;
+var ua = navigator.userAgent.toLowerCase();
+var isAndroid = ua.indexOf("android") > -1;
+var isIE11version = !!navigator.userAgent.match(/Trident.*rv\:11\./);
+var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+var CurClientWidth = window.innerWidth;
+var Macbrowser = navigator.userAgent.indexOf('Chrome');
+var Macos = navigator.userAgent.indexOf('Mac');
+var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+var isIpad = userAgentCustom.match(/iPad/i)
+var isIphone = (navigator.userAgent.match(/iPhone/i))
+var isIEEdge = /Edge/.test(navigator.userAgent)
+var Firefox = /Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent)
+
 var _ModuleCommon = (function () {
     var reviewData = [];
     return {
@@ -290,7 +306,6 @@ var _ModuleCommon = (function () {
 
         },
         OnPageLoad: function () {
-            debugger;
             this.LoadHotSpot();
             this.ApplycontainerWidth();
             $("#div_feedback").hide();
@@ -312,6 +327,9 @@ var _ModuleCommon = (function () {
             }
             else{
                 $(".hintlink").k_disable();
+            }
+            if(Firefox){
+                $('#footer-navigation').css('display', 'table');
             }
         },
         LoadHotSpot: function () {
@@ -484,7 +502,6 @@ var _ModuleCommon = (function () {
             _Navigator.Next();
         },
         OnSubmit: function () {
-            debugger;
             $("input[type='text']").k_disable();
             $("#submitbtn").k_disable();
             if (_Navigator.IsAnswered())
@@ -541,7 +558,6 @@ var _ModuleCommon = (function () {
             $("#div_feedback").show();
         },
         AddReviewData: function (textentryObjId, isCorrect) {
-            debugger
             var found = false;
             var pageReviewData;
             var textentryObj = $("input#" + textentryObjId)
@@ -594,7 +610,6 @@ var _ModuleCommon = (function () {
             return reviewData;
         },
          ViewTextEntryInReviewMode:function() {
-            debugger;
             //var reviewData = ITSimModule.GetReviewDataForTextEntry();
             // var settings = PageSettings[gCurrPageObj.PageId];
             // var embedSettings = settings.EmbedSettings;
@@ -634,7 +649,6 @@ var _ModuleCommon = (function () {
             }
           },
         OnContinue: function() {
-            debugger;
             if(_Navigator.GetCurrentPage().pageId != "p15"){
                 $("input[type='text']").val("");
                 $("#submitbtn").k_disable();
@@ -661,7 +675,6 @@ $(document).ready(function () {
 });
 
 function AppendFooter() {
-    debugger;
     if ($(".levelfooterdiv").length == 0) {
         var str = '<div class="levelfooterdiv"><div class="navBtn prev" onClick="GoToPrev()" role="button" tabindex = 195 aria-label="Previous"><a href="#"></a></div><div style="display: inline-block;width: 2px;"></div><div class="boxleveldropdown" style="width: 150px;"  role="button" tabindex = 196 aria-label="Scorecard"><span class="leftarrow"></span><ul class="levelmenu"><li class="uparrow" style = "width: 100px; margin-left: -8px;"><span class="menutitle" >Scorecard</span><div class="levelsubMenu" tabindex = 197 role="text">Total Score - <br>Activity Score - </div><a class="menuArrow"></a></div><div style="display: inline-block;width: 2px;"></div><div class="navBtn next" onClick="GoToNext()" role="button" tabindex = 198 aria-label="Next"><a href="#"></a></div></div>';
         $("#wrapper").append($(str));
@@ -687,7 +700,6 @@ var mTreeObj = {
         _Navigator.LoadPage(pageid);
     },
     GoToPrev: function () {
-        debugger;
         try {
             if ($(".navBtn.prev").css("pointer-events") == "none") {
                 return;
@@ -713,7 +725,6 @@ var mTreeObj = {
     },
     GoToNext: function () {
         try {
-            debugger;
             if ($(".navBtn.next").css("pointer-events") == "none") {
                 return;
             } 
