@@ -13,9 +13,9 @@
 }
 
 @media screen and (max-width: 912px) {
-    .intro-content {
+    /*.intro-content {
         margin: 0% 9%;
-    }
+    }*/
     
     .question-band{
         margin-left: 9%;
@@ -23,9 +23,9 @@
 }
 
 @media screen and (max-width: 893px) {
-    .intro-content {
+    /*.intro-content {
         margin: 0% 8%;
-    }
+    }*/
    
     .question-band{
         margin-left: 9%;
@@ -35,18 +35,25 @@
 }
 
 @media screen and (max-width: 880px) {
-    .intro-content {
+    /*.intro-content {
         margin: 0% 7.5%;
-    }
+    }*/
 
     h1 {
         font-size: 24px;
+    }
+    #radio-elements label + label {
+        margin-left: 10%;
+    }
+    #radio-elements label {
+        margin-left: 10%;
+        margin-top: 3%;
     }
 }
 
 @media screen and (max-width: 840px) {
     .intro-content {
-        margin: 0% 6%;
+        margin: 0% 2%;
     }
 
     .summary-content {
@@ -55,19 +62,21 @@
 }
 
 @media screen and (max-width : 768px) {
-    .intro-content {
-        margin: 0% 4%;
-    }
+
 
     h1 {
         font-size: 22px;
     }
     h2.pageheading{
-        margin:0 4%;
+        margin:0 2%;
     }
     
     .question-band{
         margin-left: 13%;
+    }
+    .activity{
+        /*height: 600px;*/
+        overflow: scroll;
     }
 }
 
@@ -76,8 +85,19 @@
         font-size: 20px;
     }
 
+    h2 {
+        font-size: 18px;
+    }
     .header-informarion p, .header-informarion div, .header-informarion span, .closehintlink {
         font-size: 13px;
+    }
+    #footer-navigation .previous, #footer-navigation .next {
+        /*margin-top: 2%;
+        padding: 0% 8% 3% 0%;
+        display: inline-table;*/
+    }
+    #footer-div {
+        margin-left: 8%;
     }
     h2.pageheading{
         margin:0 2%;
@@ -123,8 +143,17 @@
 }
 
 @media screen and (max-width : 460px) {
-    .intro-content {
+    /*.intro-content {
         margin: 0% 3%;
+    }
+    #footer-navigation .previous, #footer-navigation .next {
+        margin-top: 2%;
+        padding: 0% 5% 3% 0%;
+        display: inline-table;
+    }
+*/
+    #footer-div {
+        margin-left: 5%;
     }
     .summary-content {
         margin: 0 11% !important;
@@ -135,9 +164,10 @@
 }
 
 @media screen and (max-width: 445px) {
-    .intro-content {
+    /*.intro-content {
         margin: 0% 2%;
-    }
+        overflow: auto;
+    }*/
   
     .question-band{
         margin-left: 21%;
@@ -148,4 +178,12 @@
 }
 
 @media screen and (max-width : 420px) {
+    #footer-navigation .previous, #footer-navigation .next {
+        /*margin-top: 2%;
+        padding: 0% 2% 3% 0%;
+        display: inline-table;*/
+    }
+    #footer-div {
+        margin-left: 2%;
+    }
 }

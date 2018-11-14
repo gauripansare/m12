@@ -3,7 +3,7 @@
 }
 .disabled {
     cursor: not-allowed;
-    opacity: 0.8;
+    opacity: 0.5;
     pointer-events: none;
 }
 
@@ -38,15 +38,13 @@
 .question-band .qheight {
     margin-top: 20px;
 }
-
 /*intro-content CSS End */
-
-
 
 /*Question Css*/
 .questionband {
     float: left;
 }
+
 .questionband input[type='text'], .questionband input[type='number'] {
         text-align: center;
         width: 100px;
@@ -58,6 +56,18 @@
 
 /*intro-content CSS End */
 
+.greenspan {
+    color: #01662C;
+    font-weight: bold;
+}
+
+.redspan {
+    color: #B22222;
+    font-weight: bold;
+}
+.pageheading{
+    margin: 0 10%;
+}
 .wrapperimage {
     width: 798px;
     height: auto;
@@ -65,7 +75,14 @@
     display:flexbox;
     justify-content:center
 }
-
+.vpwrapperimage {
+    width: 798px;
+    height: auto;
+    position: relative;
+    display:flexbox;
+    justify-content:center;
+    /*overflow: hidden*/
+}
 .activityimg {
     width: 796px;
     border:1px solid #cccccc;
@@ -82,28 +99,18 @@
 }
 
 #div_feedback {
-    display: block;
-    float: left;  
+    display: none;  
     height: auto;
     border-top: 1px solid #cdcdcd;
     border-bottom: 1px solid #cdcdcd;
-    /* background: #F0F0F0;    */
     width: 100%;
 }
 
 .div_fdkcontent {
     margin: 0 10%;
-    margin-bottom: 10px;
 }
 
-.greenspan {
-    color: #01662C;
-    font-weight: bold;
-}
-.redspan {
-    color: #B22222;
-    font-weight: bold;
-}
+
 .start-btn {
     width: 100%;
     display: flex;
@@ -420,6 +427,17 @@ input[type="text"]{
     }
     
 /*assessment css */
+.questioninnerwrapper .inputcircle, #Summary .inputcircle {
+    position: relative;
+    padding-left: 6px;
+    cursor: pointer;
+    color: gray;
+    left: -22px;
+}
+.inpputtext {
+    display: block;
+    margin: 5px 0;
+}
 .inputcircle:after {
     content: '';
     width: 23px;
@@ -438,8 +456,8 @@ input[type="text"]{
     -webkit-box-sizing: border-box;
 }
 
-.assessmentradio:checked + .inputcircle:before {
-    content: '';   
+    .assessmentradio:checked + .inpputtext .inputcircle:before {
+    content: '';
     height: 15px;
     width: 15px;
     position: absolute;
@@ -452,8 +470,8 @@ input[type="text"]{
     -webkit-border-radius: 100%;
 }
 
-.assessmentradio:checked + .inputcircle {
-    color: #047a9c;
+    .assessmentradio:checked + .inpputtext .inputcircle, #Summary .assessmentradio:checked + .inpputtext .inputcircle {
+    color: #047a9c !important;
 }
 
 #questioninnerwrapper.inputcircle , #Summary.inputcircle {
@@ -478,6 +496,7 @@ input[type="text"]{
     .iscorrect{
         position: absolute;
         left: -43px;
+        padding-top: 4px;   
     }
     .summaryquestion{
         margin-bottom: 20px;
@@ -531,11 +550,11 @@ input[type="text"]{
         margin-top: 20px;
         padding-top: 20px;
         padding-right: 10px;
-        margin-left: 20px;
     }
     .question-band{
         float: left;
         margin-left: 8%;
+    position: relative;
     }
    .quetiontext{
        margin-left: 20px;
@@ -569,3 +588,24 @@ input[type="text"]{
     .flowchart-val4{
     left: 428px;
     }
+
+.hotspotclicked{
+    background-color:#33A7C0;
+    opacity:0.5
+}
+
+.Accessibility{
+    position: absolute !important;
+    opacity: 0;
+    font-size: 0px !important;
+}
+/*Presenter Mode css start*/
+.presentationModeFooter {
+    display: inline-block;
+    background-color: #1a76cb;
+    height: 29px;
+    width: 100%;
+        color: white;
+    text-align: center;
+}
+/*presenter Mode css End*/

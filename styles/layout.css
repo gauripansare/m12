@@ -3,22 +3,19 @@
     font-family: 'Open Sans';
     line-height: 1.5em;
 }
-
-
-
-body {
-    display: block;
-    color: #333333;
-    box-sizing: border-box;
-    margin-top :2px;
-}
-
 .no-focus *:focus {
     outline: none !important;
     outline-width: 0 !important;
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
+}
+
+body {
+    display: block;
+    color: #333333;
+    box-sizing: border-box;
+    margin-top :2px;
 }
 
 html[xmlns] .clearfix {
@@ -45,7 +42,10 @@ h4 {
 h2.pageheading {
     margin: 17px 10%;
 }
-
+h2.pageheading {
+    margin: 0 10%;
+    padding-bottom: 10px;
+}
 h2.top-slider-heading {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -63,8 +63,8 @@ fieldset {
 }
 
 div, p, span, input, textarea {
-    font-size: 16px;
     -webkit-text-size-adjust: 100%;
+    font-size: 16px;
 }
 
     input[type='button']:not(.divHotSpot), button:not(.divHotSpot) {
@@ -78,9 +78,23 @@ div, p, span, input, textarea {
         min-width: 100px;
     }
 
-        h1:focus, a:focus, input:focus, button:focus, textarea:focus, select:focus, h1:focus, a:active, input:active, button:active, textarea:active, select:active {
-            outline: #ff8c00 solid 2px;
-        }
+.hintlinkspan{
+    background-color: white;
+    border-right: none;
+}
+a:focus, input:focus, button:focus, textarea:focus, select:focus, a:active, input:active, 
+button:active, textarea:active, select:active,
+ .questioninnerwrapper input[type="radio"]:focus + .inputcircle::after,
+ #Summary input[type="radio"]:focus + .inputcircle::after {
+    outline: #ff8c00 auto 3px;
+}
+.no-focus .questioninnerwrapper input[type="radio"]:focus + .inputcircle::after {
+    outline: none
+}
+
+#progressdiv:focus,#titleheader:focus,#header1:focus,#div_feedback p:focus,#Questioninfo:focus,#summaryheading:focus,.pageheading:focus,p:focus{ /*for accessibility*/
+    outline: none
+}
 
 #appmenu *:focus, #appmenu *:active {
     outline: #ff8c00 solid 2px;
@@ -263,7 +277,6 @@ div, p, span, input, textarea {
 
 #footer-navigation .previous, #footer-navigation .next {
     margin-top: 20px;
-    margin-bottom: 10px;
     width: 50%;
     float: left;
 }
@@ -386,7 +399,6 @@ div, p, span, input, textarea {
 
 .hintlink {
     position: absolute;
-    display: none;
     font-weight: bold;
     text-decoration: none;	
 }
@@ -400,7 +412,6 @@ div, p, span, input, textarea {
 }
 
 .hintimg{
-   
     display: inline-block;    
     float: left;
     
@@ -412,6 +423,7 @@ div, p, span, input, textarea {
     color: #047a9c;
     border-bottom: 1px solid rgb(4, 122, 156);
     margin-left: -2px;
+    min-width: 40px;
 }
 .hintinfodiv{
     border-top: 1px solid #cccccc;

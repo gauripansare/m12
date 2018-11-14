@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no" ?>
+<!--
+
+Metadata example. SCORM 2004 3rd Edition.
+
+Provided by Rustici Software - http://www.scorm.com
+
+This example extends the basic single SCO example to include the use of metadata.
+Usage of metadata is demonstrated in every place it can be applied. Both in-line and
+external metadata are demonstrated. The external course-level metadata contains a complete
+example of the proper usage of every metadata element.
+-->
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" identifier="knowdlPublishId_rm-1374" version="1" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd http://ltsc.ieee.org/xsd/LOM lom.xsd">
+<metadata>
+<schema>ADL SCORM</schema>
+<schemaversion>2004 3rd Edition</schemaversion>
+</metadata>
+<organizations default="knowdl_scorm_default_org">
+<organization identifier="knowdl_scorm_default_org">
+<title>Program Development</title>
+<item identifier="item_knowdlPublishId_rm-1374" identifierref="resource_knowdlPublishId_rm-1374">
+<title>Program Development</title>
+</item>
+</organization>
+</organizations>
+<resources>
+<resource identifier="resource_knowdlPublishId_rm-1374" type="webcontent" adlcp:scormType="sco" href="index.htm">
+<file href="index.htm"/>
+</resource>
+</resources>
+</manifest>
