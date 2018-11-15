@@ -129,7 +129,7 @@ input[type="text"]{
     height: 14px;
     font-size: 15px;
     text-align: center;
-    border: unset;
+    border: none;
     font-family: arial;   
     font-size: 12px;
 }
