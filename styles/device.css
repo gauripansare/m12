@@ -125,6 +125,16 @@
         padding-right: 7px;
     }
 
+    .header-content-dock * {
+        font-size: 13px;
+    }
+    .header-content-dock .progressdiv{
+        margin-top:4px;
+    }
+
+    .header-content-dock .hintlinkspan{
+        vertical-align: super;
+    }
 }
 
 @media screen and (max-width : 480px) {

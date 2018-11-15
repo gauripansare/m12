@@ -457,17 +457,36 @@ var _ModuleCommon = (function () {
 
             var appendImage = $(".wrapperimage");
             if (pageData != undefined) {
-                if (pageData.EmbedSettings != undefined) {
+                if (pageData.inputSettings != undefined) {
                     $("input[type='text']").addClass("greenspan");
-                    $("input[type='text']").val(pageData.EmbedSettings.validatearray[0]);
                     $("input[type='text']").k_disable();
+                    if (currentPageData.pageId == "p3") {
+                        for (var i = 0; i < pageData.answerset.length; i++) {
+                            $("#" + pageData.inputSettings[i].inputid).val(pageData.answerset[i]);
+                        }
+                    }
+                    else{
+                        for (var i = 0; i < pageData.inputSettings.length; i++) {
+                            $("#" + pageData.inputSettings[i].inputid).val(pageData.inputSettings[i].answerset);
+                        }
+                    }
                 }
-                else if(pageData.ImageHotSpots != undefined){
+                else if (pageData.ImageHotSpots != undefined) {
                     var posObj = pageData.ImageHotSpots.Hotspots[0];
                     var _div = "<div class='reviewDiv Correct' style='z-index:5;width:39px;height:39px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:39px;height:35px;' /></div>";
                     $(".divHotSpot").addClass("hotspotclicked");
                     $(".divHotSpot").addClass("disabled");
                     appendImage.append(_div);
+                }
+                if(pageData.correctfeedback != undefined){
+                    $("#div_feedback").show();
+                    $("#div_feedback .div_fdkcontent").load(_Settings.dataRoot+pageData.correctfeedback, function () {
+                        $("#div_feedback p:first").attr("tabindex", "-1")
+                        $("#div_feedback p:first").attr("role", "text");
+                        if (isIOS) {
+                            $("#div_feedback p:first").attr("role", "text");
+                        }
+                    });
                 }
             }
             $("#linknext").k_enable();
@@ -575,17 +594,20 @@ var _ModuleCommon = (function () {
                 if (iOS) {
                     $("#div_feedback p:first").attr("role", "text")
                 }
-                if (isIE11version) {
-                    $("#div_feedback .div_fdkcontent p:first").focus();
-                    $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
-                    });
-                }
-                else {
-                    $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
-                        $("#div_feedback .div_fdkcontent p:first").focus();
+                // if (isIE11version) {
+                //     $("#div_feedback .div_fdkcontent p:first").focus();
+                //     $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
+                //     });
+                // }
+                // else {
+                //     $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
+                //         $("#div_feedback .div_fdkcontent p:first").focus();
 
-                    });
-                }
+                //     });
+                // }
+                window.scrollTo(0, document.body.scrollHeight);
+                $("#div_feedback .div_fdkcontent p:first").focus();
+
             });
             this.EnableNext();
         },
@@ -613,17 +635,9 @@ var _ModuleCommon = (function () {
                 if (iOS) {
                     $("#div_feedback p:first").attr("role", "text")
                 }
-                if (isIE11version) {
-                    $("#div_feedback .div_fdkcontent p:first").focus();
-                    $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
-                    });
-                }
-                else {
-                    $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
-                        $("#div_feedback .div_fdkcontent p:first").focus();
 
-                    });
-                }
+                window.scrollTo(0, document.body.scrollHeight);
+                $("#div_feedback .div_fdkcontent p:first").focus();
             });
             this.EnableNext();
         },
@@ -657,6 +671,7 @@ var _ModuleCommon = (function () {
                     _Navigator.SetPageStatus(true);
                     $("#linknext").k_enable();
                     this.SetTextEntryAccessibility(inputtextids);
+                    _Navigator.GetBookmarkData();
                 }
                 else {
                     fdbkurl = _Settings.dataRoot + pageData.incorrectfeedback;
@@ -690,7 +705,7 @@ var _ModuleCommon = (function () {
                     fdbkurl = _Settings.dataRoot + pageData.incorrectfeedback;
                 }
                 this.SetTextEntryAccessibility(inputtextids);
-
+                _Navigator.GetBookmarkData();
             }
             $("#div_feedback").show();
             $("#div_feedback .div_fdkcontent").load(fdbkurl, function () {
@@ -699,16 +714,8 @@ var _ModuleCommon = (function () {
                 if (isIOS) {
                     $("#div_feedback p:first").attr("role", "text");
                 }
-                if (isIE11version) {
-                    $("#div_feedback p:first").focus();
-                    $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
-                    });
-                }
-                else {
-                    $('html,body').animate({ scrollTop: document.body.scrollHeight }, animTime, function () {
-                        $("#div_feedback p:first").focus();
-                    });
-                }
+                window.scrollTo(0, document.body.scrollHeight);
+                $("#div_feedback .div_fdkcontent p:first").focus();
             });
         },
         AddReviewData: function (textentryObjId, isCorrect) {
@@ -852,11 +859,8 @@ var _ModuleCommon = (function () {
     }
 })();
 $(document).ready(function () {
-    _Navigator.Start();
-    //if (_Settings.enableCache) {
-    //    _Caching.InitAssetsCaching();
-    //    _Caching.InitPageCaching();
-    //}
+
+    _Navigator.Initialize();
     $('body').attr({ "id": "thebody", "onmousedown": "document.getElementById('thebody').classList.add('no-focus');", "onkeydown": "document.getElementById('thebody').classList.remove('no-focus');" })
 });
 

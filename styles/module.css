@@ -593,12 +593,14 @@ input[type="text"]{
     background-color:#33A7C0;
     opacity:0.5
 }
-
-.Accessibility{
-    position: absolute !important;
-    opacity: 0;
-    font-size: 0px !important;
+.inpputtext{
+    display: block;
+    margin: 5px 0;
 }
+#Summary .inpputtext{
+   margin: 0px;
+}
+
 /*Presenter Mode css start*/
 .presentationModeFooter {
     display: inline-block;
@@ -607,5 +609,10 @@ input[type="text"]{
     width: 100%;
         color: white;
     text-align: center;
+}
+.Accessibility{
+    position: absolute !important;
+    opacity: 0;
+    font-size: 0px !important;
 }
 /*presenter Mode css End*/
