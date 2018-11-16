@@ -163,6 +163,7 @@ var _Navigator = (function () {
         $(".hintlink").attr("aria-expanded", "false")
         $("#header-title h1").show()
         $("#header-title").removeClass("startpage");
+        $(".wrapperimage").find(".ariaHidden").attr("aria-hidden", "true");
         if (_currentPageObject.isStartPage != undefined && _currentPageObject.isStartPage) {
             $("#header-title h1").hide()
             $("#header-title").addClass("startpage");
@@ -260,7 +261,7 @@ var _Navigator = (function () {
                         }
                         if (_Navigator.IsPresenterMode() && (_currentPageObject.pageId != quizpageid )) {
                             _ModuleCommon.PresenterMode();
-                            $(".wrapperimage").find(".ariaHidden").attr("aria-hidden", "true")
+                            $(".wrapperimage").find(".ariaHidden").attr("aria-hidden", "true");
                         }
                         if (_currentPageId == quizpageid)//  change to assessment id
                         {
