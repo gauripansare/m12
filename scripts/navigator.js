@@ -248,7 +248,7 @@ var _Navigator = (function () {
                     $(".main-content").load(pageUrl, function () {
                         $(this).fadeTo(600, 1)
                         OnPageLoad();
-                        if (_currentPageObject.pageId == "p2") {
+                        /*if (_currentPageObject.pageId == "p2") {
                             $("#titleheader").focus();
                         }
                         else {
@@ -258,7 +258,7 @@ var _Navigator = (function () {
                             else {
                                 $("#Questioninfo").focus();
                             }
-                        }
+                        }*/
                         if (_Navigator.IsPresenterMode() && (_currentPageObject.pageId != quizpageid )) {
                             _ModuleCommon.PresenterMode();
                             $(".wrapperimage").find(".ariaHidden").attr("aria-hidden", "true");
@@ -288,12 +288,25 @@ var _Navigator = (function () {
                             $("div#hintdiv").hide();
                         }
                         _NData[_currentPageObject.pageId].isLoaded = true;
-                        if (_currentPageObject.pageId == "p2")
+                        if (_currentPageObject.pageId == "p2") {
                             $("#titleheader").focus();
-                        else if (_currentPageObject.pageId == quizpageid)
-                            $(".pageheading").focus();
-                        else
-                            $("#progressdiv").focus();
+                        }
+                        else {
+                            if (_currentPageId != quizpageid) {
+                                if(isChrome){
+                                    $("#titleheader").focus();
+                                }
+                                else{
+                                    if(isiPhone){
+                                        $("#progressdiv").attr("role","text")
+                                    }
+                                    $("#progressdiv").focus();
+                                }
+                            }
+                            else {
+                                $("#Questioninfo").focus();
+                            }
+                        }
 
                         _Navigator.GetBookmarkData();
                     });

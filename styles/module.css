@@ -417,7 +417,7 @@ input[type="text"]{
     background-color: #eceff4;
 }
 
-
+/*assessment css */
 .inputcircle{
     position: relative;
         padding-left: 6px;
@@ -426,7 +426,7 @@ input[type="text"]{
         left: -22px;
     }
     
-/*assessment css */
+
 .questioninnerwrapper .inputcircle, #Summary .inputcircle {
     position: relative;
     padding-left: 6px;
