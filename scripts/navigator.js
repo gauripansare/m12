@@ -2,7 +2,7 @@
 //It will also handle the question navigation if the page is having multiple questions.
 var _Navigator = (function () {
     var packageType = "";//presenter/scorm/revel
-    var ScormReviewMode = false;
+    var isReviewMode = false;
     var _currentPageId = "";
     var _currentPageObject = {};
     var progressLevels = [20];
@@ -177,7 +177,7 @@ var _Navigator = (function () {
             $("#linknext").k_enable();
             $(".start-btn").k_disable();
         }
-        if (_Navigator.IsScormReviewMode()) {
+        if (_Navigator.IsReviewMode()) {
             $("#linknext").k_enable();
             $(".start-btn").k_disable();
         }
@@ -191,7 +191,7 @@ var _Navigator = (function () {
             if (this.IsPresenterMode()) {
                 _ModuleCommon.AppendFooter();
             }
-            if(this.IsScormReviewMode()){
+            if(this.IsReviewMode()){
                 _ModuleCommon.AppendScormReviewFooter();
             }
             
@@ -223,7 +223,7 @@ var _Navigator = (function () {
                 $("#linknext").k_enable();
                 $("footer").hide();
                 $("#header-progress").hide();
-                if(this.IsScormReviewMode()){
+                if(this.IsReviewMode()){
                     _ModuleCommon.AppendScormReviewFooter();
                 }
                 if (this.IsPresenterMode())
@@ -452,11 +452,11 @@ var _Navigator = (function () {
                 this.UpdateScore();
             }
         },
-        IsScormReviewMode: function(){
-            return ScormReviewMode;
+        IsReviewMode: function(){
+            return isReviewMode;
         },
-        SetScormReviewMode: function(ScormReviewModeStatus){
-            ScormReviewMode = ScormReviewModeStatus;
+        SetIsReviewMode: function(isReviewModeStatus){
+            isReviewMode = isReviewModeStatus;
         },
         SetPageStatus: function (isAnswered) {
             if (isAnswered) {
@@ -493,7 +493,7 @@ var _Navigator = (function () {
             }
         },
         GetBookmarkData: function () {
-            if (!this.IsScorm() && !this.IsRevel())
+            if (!this.IsScorm() && !this.IsRevel() && !this.IsReviewMode())
                 return;
             var bookmarkobj = {}
             bookmarkobj.BMPageId = bookmarkpageid;
@@ -577,7 +577,7 @@ var _Navigator = (function () {
                 _Navigator.SetBookmarkData();
                 //bookmarkpageid = _ScormUtility.GetBookMark();
                 if(_ScormUtility.IsScormReviewMode()){
-                    _Navigator.SetScormReviewMode(true);
+                    _Navigator.SetIsReviewMode(true);
                 }
                 this.GotoBookmarkPage();
             }
