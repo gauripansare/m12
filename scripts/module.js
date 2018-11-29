@@ -708,6 +708,7 @@ var _ModuleCommon = (function () {
                 _Navigator.GetBookmarkData();
             }
             $("#div_feedback").show();
+            $("#div_feedback").css("display","inline-block");
             $("#div_feedback .div_fdkcontent").load(fdbkurl, function () {
                 $("#div_feedback p:first").attr("tabindex", "-1")
                 $("#div_feedback p:first").attr("role", "text");
@@ -830,7 +831,9 @@ var _ModuleCommon = (function () {
             $(".divHotSpot").k_enable();
             $("#div_feedback .div_fdkcontent").html("");
             $("#div_feedback").hide();
-            $('html,body').animate({ scrollTop: document.body.scrollHeigh }, 500, function () { });
+            $(".pageheading").attr("tabindex", "-1")
+            window.scrollTo(0, document.body.scrollHeight)
+            $(".pageheading").focus();
         },
         InputChek: function () {
 

@@ -122,7 +122,7 @@ button:active, textarea:active, select:active,
 
 .innerWrapper {
     float: left;
-    width: 96%;
+    width: 100%;
 }
 
 .wrapper-img img {

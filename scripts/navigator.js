@@ -248,17 +248,26 @@ var _Navigator = (function () {
                     $(".main-content").load(pageUrl, function () {
                         $(this).fadeTo(600, 1)
                         OnPageLoad();
-                        /*if (_currentPageObject.pageId == "p2") {
+                        if (_currentPageObject.pageId == "p2") {
                             $("#titleheader").focus();
                         }
+                        else if ((isIphone || isAndroid) && _NData[_currentPageId].isLoaded != undefined && _NData[_currentPageId].isLoaded == true) {//iphone android on previous focus is set to header
+                            $("h2").attr("tabindex", "0");
+                            $("h2").focus();
+                        }
                         else {
-                            if (_currentPageId != quizpageid) {
-                                $("#progressdiv").focus();
+                            //$(".header-informarion .hintlink").focus();
+                            //$("h2").focus();
+                            if (isChrome && !isAndroid) {
+                                $("h2").attr("tabindex", "0");
+                                $("h2").focus();
                             }
                             else {
-                                $("#Questioninfo").focus();
+                                $("#progressdiv").focus();
                             }
-                        }*/
+                            // setReader("progressdiv");
+
+                        }
                         if (_Navigator.IsPresenterMode() && (_currentPageObject.pageId != quizpageid )) {
                             _ModuleCommon.PresenterMode();
                             $(".wrapperimage").find(".ariaHidden").attr("aria-hidden", "true");
@@ -288,26 +297,6 @@ var _Navigator = (function () {
                             $("div#hintdiv").hide();
                         }
                         _NData[_currentPageObject.pageId].isLoaded = true;
-                        if (_currentPageObject.pageId == "p2") {
-                            $("#titleheader").focus();
-                        }
-                        else {
-                            if (_currentPageId != quizpageid) {
-                                if(isChrome){
-                                    $("#titleheader").focus();
-                                }
-                                else{
-                                    if(isiPhone){
-                                        $("#progressdiv").attr("role","text")
-                                    }
-                                    $("#progressdiv").focus();
-                                }
-                            }
-                            else {
-                                $("#Questioninfo").focus();
-                            }
-                        }
-
                         _Navigator.GetBookmarkData();
                     });
                 })
@@ -362,8 +351,14 @@ var _Navigator = (function () {
                 if (typeof (currentQuestionIndex) != 'undefined' && typeof (gRecordData.Questions) != 'undefined' && (currentQuestionIndex + 1) < gRecordData.Questions.length) {
                     currentQuestionIndex = currentQuestionIndex + 1
                     $("#Questioninfo").show();
-                    _Assessment.ShowQuestion()
-                    //this.UpdateProgressBar();
+                    _Assessment.ShowQuestion();
+                    if (isChrome && !isAndroid) {
+                        $("h2.pageheading").attr("tabindex", "0");
+                        $("h2").focus();
+                    }
+                    else {
+                        $("#progressdiv").focus();
+                    }
                     if (gRecordData.Status != "Completed" && !this.IsPresenterMode()) {
                         $("#linknext").k_disable();
                         $("#linkprevious").k_disable();
