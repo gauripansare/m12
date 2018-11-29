@@ -846,6 +846,14 @@ var _ModuleCommon = (function () {
                 $("#linknext").k_enable();
             }
         },
+        AppendScormReviewFooter: function () {
+            if ($(".ScormReviewFooter").length == 0) {
+                var str = '<div class="ScormReviewFooter">Scorm Review Mode</div>';
+                $("footer").append($(str));
+                $("footer").show();
+                $("#linknext").k_enable();
+            }
+        },
         SetTextEntryAccessibility: function (inputtextids) {
             var inputid = inputtextids;
             for (var i = 0; i < inputid.length; i++) {

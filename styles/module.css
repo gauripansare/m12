@@ -602,7 +602,7 @@ input[type="text"]{
 }
 
 /*Presenter Mode css start*/
-.presentationModeFooter {
+.presentationModeFooter, .ScormReviewFooter {
     display: inline-block;
     background-color: #1a76cb;
     height: 29px;

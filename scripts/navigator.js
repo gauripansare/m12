@@ -2,6 +2,7 @@
 //It will also handle the question navigation if the page is having multiple questions.
 var _Navigator = (function () {
     var packageType = "";//presenter/scorm/revel
+    var ScormReviewMode = false;
     var _currentPageId = "";
     var _currentPageObject = {};
     var progressLevels = [20];
@@ -176,6 +177,10 @@ var _Navigator = (function () {
             $("#linknext").k_enable();
             $(".start-btn").k_disable();
         }
+        if (_Navigator.IsScormReviewMode()) {
+            $("#linknext").k_enable();
+            $(".start-btn").k_disable();
+        }
     }
     return {
         Get: function () {
@@ -186,6 +191,10 @@ var _Navigator = (function () {
             if (this.IsPresenterMode()) {
                 _ModuleCommon.AppendFooter();
             }
+            if(this.IsScormReviewMode()){
+                _ModuleCommon.AppendScormReviewFooter();
+            }
+            
         },
         LoadPage: function (pageId, jsonObj) {
             $(".hintcontainer").hide();
@@ -214,9 +223,11 @@ var _Navigator = (function () {
                 $("#linknext").k_enable();
                 $("footer").hide();
                 $("#header-progress").hide();
+                if(this.IsScormReviewMode()){
+                    _ModuleCommon.AppendScormReviewFooter();
+                }
                 if (this.IsPresenterMode())
                     _ModuleCommon.AppendFooter();
-
             }
             if (_currentPageObject.hasActivity != undefined && _currentPageObject.hasActivity && !this.IsAnswered()) {
                 $("#linknext").k_disable();
@@ -441,6 +452,12 @@ var _Navigator = (function () {
                 this.UpdateScore();
             }
         },
+        IsScormReviewMode: function(){
+            return ScormReviewMode;
+        },
+        SetScormReviewMode: function(ScormReviewModeStatus){
+            ScormReviewMode = ScormReviewModeStatus;
+        },
         SetPageStatus: function (isAnswered) {
             if (isAnswered) {
                 _NData[_currentPageObject.pageId].isAnswered = true;
@@ -559,6 +576,9 @@ var _Navigator = (function () {
                 _ScormUtility.Init();
                 _Navigator.SetBookmarkData();
                 //bookmarkpageid = _ScormUtility.GetBookMark();
+                if(_ScormUtility.IsScormReviewMode()){
+                    _Navigator.SetScormReviewMode(true);
+                }
                 this.GotoBookmarkPage();
             }
             else if (packageType == "revel") {
