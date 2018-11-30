@@ -374,7 +374,7 @@ button:active, textarea:active, select:active,
     float: left;
     width: 135px;
     /*border-right: #cccccc 2px solid;*/
-    margin-left: -15px;
+    margin-left: -10px;
 }
 
 .scoreDiv {

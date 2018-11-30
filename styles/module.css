@@ -620,3 +620,9 @@ input[type="text"]{
     margin-bottom: 10px;
     display: flex;
 }
+.questioninnerwrapper legend {
+    width: 100%;
+}
+.summaryquestion legend {
+    width: 100%;
+}

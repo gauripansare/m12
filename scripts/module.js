@@ -383,8 +383,9 @@ var _ModuleCommon = (function () {
             this.LoadHotSpot();
             this.ApplycontainerWidth();
             if ($("#div_feedback").length > 0) {
-                $("#div_feedback").hide();
-
+                if (_Navigator.GetCurrentPage().pageId != "p14") {
+                    $("#div_feedback").hide();
+                }
             }
             $("#submitbtn").k_disable();
             if (_Navigator.IsAnswered()) {
@@ -465,7 +466,7 @@ var _ModuleCommon = (function () {
                             $("#" + pageData.inputSettings[i].inputid).val(pageData.answerset[i]);
                         }
                     }
-                    else{
+                    else {
                         for (var i = 0; i < pageData.inputSettings.length; i++) {
                             $("#" + pageData.inputSettings[i].inputid).val(pageData.inputSettings[i].answerset);
                         }
@@ -478,9 +479,9 @@ var _ModuleCommon = (function () {
                     $(".divHotSpot").addClass("disabled");
                     appendImage.append(_div);
                 }
-                if(pageData.correctfeedback != undefined){
+                if (pageData.correctfeedback != undefined) {
                     $("#div_feedback").show();
-                    $("#div_feedback .div_fdkcontent").load(_Settings.dataRoot+pageData.correctfeedback, function () {
+                    $("#div_feedback .div_fdkcontent").load(_Settings.dataRoot + pageData.correctfeedback, function () {
                         $("#div_feedback p:first").attr("tabindex", "-1")
                         $("#div_feedback p:first").attr("role", "text");
                         if (isIOS) {
@@ -522,6 +523,7 @@ var _ModuleCommon = (function () {
 
         },
         HotspotClick: function (_hotspot, event) {
+            debugger;
             if (_Navigator.IsRevel()) {
                 LifeCycleEvents.OnInteraction("Hotspot click.")
             }
@@ -708,7 +710,7 @@ var _ModuleCommon = (function () {
                 _Navigator.GetBookmarkData();
             }
             $("#div_feedback").show();
-            $("#div_feedback").css("display","inline-block");
+            $("#div_feedback").css("display", "inline-block");
             $("#div_feedback .div_fdkcontent").load(fdbkurl, function () {
                 $("#div_feedback p:first").attr("tabindex", "-1")
                 $("#div_feedback p:first").attr("role", "text");
@@ -871,7 +873,13 @@ var _ModuleCommon = (function () {
     }
 })();
 $(document).ready(function () {
-
+    $('.maxlengthinput').on('keydown keyup change', function(){
+        var char = $(this).val();
+        var charLength = $(this).val().length;
+        if(charLength < 2){
+            $(this).val(char.substring(0, 2));
+        }
+    });
     _Navigator.Initialize();
     $('body').attr({ "id": "thebody", "onmousedown": "document.getElementById('thebody').classList.add('no-focus');", "onkeydown": "document.getElementById('thebody').classList.remove('no-focus');" })
 });
