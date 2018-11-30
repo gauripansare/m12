@@ -365,13 +365,6 @@ var _Navigator = (function () {
                     currentQuestionIndex = currentQuestionIndex + 1
                     $("#Questioninfo").show();
                     _Assessment.ShowQuestion();
-                    if (isChrome && !isAndroid) {
-                        $("h2.pageheading").attr("tabindex", "0");
-                        $("h2").focus();
-                    }
-                    else {
-                        $("#progressdiv").focus();
-                    }
                     if (gRecordData.Status != "Completed" && !this.IsPresenterMode()) {
                         $("#linknext").k_disable();
                         $("#linkprevious").k_disable();
@@ -387,6 +380,13 @@ var _Navigator = (function () {
                     $("#Questioninfo").hide();
                     $("#Summary").load("pagedata/Summary.htm", function () {
                         _Assessment.ShowSummary()
+                        if (isChrome && !isAndroid) {
+                            $("h2.pageheading").attr("tabindex", "0");
+                            $("h2").focus();
+                        }
+                        else {
+                            $("#progressdiv").focus();
+                        }
                         $("#linkprevious").k_enable();
                         $("#Summary").find("input[type='radio']").attr("readonly", "readonly");
                         $(".question-band").find("img").attr("aria-hidden", "true");

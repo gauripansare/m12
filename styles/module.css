@@ -108,6 +108,7 @@
 
 .div_fdkcontent {
     margin: 0 10%;
+    float: left;
 }
 
 
@@ -618,7 +619,7 @@ input[type="text"]{
 /*presenter Mode css End*/
 .continuebtn {
     margin-bottom: 10px;
-    display: flex;
+    display: inline-block;
 }
 .questioninnerwrapper legend {
     width: 100%;

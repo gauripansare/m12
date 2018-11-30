@@ -107,6 +107,7 @@ $(document).on("click", ".closehintlink", function (event) {
 
 $(document).on("click", "#submitbtn", function (event) {
     _ModuleCommon.OnSubmit();
+    
 });
 
 $(document).on("click", "#continuebtn", function (event) {
