@@ -38,6 +38,9 @@ var _Assessment = (function () {
 			}
 
 		},
+		SetCurrentQuestionIndex: function(questionIndex){
+			currentQuestionIndex = questionIndex;
+		},
 		Shuffle: function (array) {
 			var currentIndex = array.length, temporaryValue, randomIndex;
 

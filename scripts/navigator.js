@@ -193,6 +193,7 @@ var _Navigator = (function () {
             }
             if(this.IsReviewMode()){
                 _ModuleCommon.AppendScormReviewFooter();
+                _Assessment.SetCurrentQuestionIndex(0);
             }
             
         },
@@ -225,6 +226,7 @@ var _Navigator = (function () {
                 $("#header-progress").hide();
                 if(this.IsReviewMode()){
                     _ModuleCommon.AppendScormReviewFooter();
+                    _Assessment.SetCurrentQuestionIndex(0)
                 }
                 if (this.IsPresenterMode())
                     _ModuleCommon.AppendFooter();

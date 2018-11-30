@@ -826,6 +826,7 @@ var _ModuleCommon = (function () {
                 $("input[type='text']").removeAttr("aria-hidden")
                 $("#submitbtn").k_disable();
             }
+            $("input[type='text'].incorrect").removeAttr("aria-hidden")
             $(".hotspotclicked").removeClass("hotspotclicked");
             $("input[type='text']").k_enable();
             $(".divHotSpot").k_enable();
@@ -848,7 +849,7 @@ var _ModuleCommon = (function () {
         },
         AppendScormReviewFooter: function () {
             if ($(".ScormReviewFooter").length == 0) {
-                var str = '<div class="ScormReviewFooter">Scorm Review Mode</div>';
+                var str = '<div class="ScormReviewFooter"> Review Mode</div>';
                 $("footer").append($(str));
                 $("footer").show();
                 $("#linknext").k_enable();
