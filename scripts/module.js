@@ -686,7 +686,7 @@ var _ModuleCommon = (function () {
                 //Generic
                 var isAllCorrect = true;
                 for (var i = 0; i < pageData.inputSettings.length; i++) {
-                    if ($("#" + inputtextids[i]).val() == pageData.inputSettings[i].answerset) {
+                    if ($.trim($("#" + inputtextids[i]).val()) == pageData.inputSettings[i].answerset) {
                         this.AddReviewData(pageData.inputSettings[i].inputid, true)
                         $("#" + inputtextids[i]).addClass("correct").addClass("greenspan");
                     }
