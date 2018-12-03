@@ -203,10 +203,12 @@ var _Navigator = (function () {
             if (_Navigator.IsRevel() && _currentPageId != undefined && _currentPageId != "") {
                 LifeCycleEvents.OnUnloadFromPlayer()
             }
-            bookmarkpageid = pageId;
+           
             if (jsonObj == undefined) {
                 jsonObj = {};
             }
+
+            bookmarkpageid = pageId;
             _currentPageId = pageId;
             this.UpdateProgressBar();
             _currentPageObject = _NData[_currentPageId]

@@ -95,12 +95,13 @@ var _Assessment = (function () {
 			}
 			$(".question-band .assessmentradio").unwrap();
 			$("#Questioninfo").text("Performance Check: Mini-Quiz: Question " + parseInt(currentQuestionIndex + 1) + " of 4")
-			//removeCSS("styles/questionPlaceholder.css")
-			if (isSafari && !iOS) {
-				$("#QuetionText").attr("aria-hidden", "true");
-				$("#QuetionText").closest(".questioninnerwrapper").attr("aria-label", "question number " + (currentQuestionIndex + 1) + ") " + currQustion.QuestionText);
+
+			if (gRecordData.Status == "Completed") {
+				$(".intro-content-question").show();
 			}
-			$(".intro-content-question").fadeIn(600)
+			else {
+				$(".intro-content-question").fadeIn(600)
+			}
 
 			$("#Questioninfo").focus();
 			if (gRecordData.Status != "Completed") {
@@ -121,6 +122,7 @@ var _Assessment = (function () {
 			_Navigator.GetBookmarkData();
 		},
 		ShowQuestionPresenterMode: function () {
+			$(".assessmentSubmit").hide();
 			var currQuestion = gRecordData.Questions[currentQuestionIndex];
 			var correctoption = currQuestion.Options.filter(function (item) {
 				return item.IsCorrect;
@@ -132,12 +134,13 @@ var _Assessment = (function () {
 			iscorrectimg.attr("src", "assets/images/tick-icon-correct-1.png");
 			iscorrectimg.attr({ "alt": "", "aria-hidden": "true" });
 			iscorrectimg.closest("span").show();
-			$("#" + correctoption.OptionId).attr("aria-label", "Correct option selected");
+			iscorrectimg.attr("aria-label", "Correct option selected");
 			gRecordData.Questions[currentQuestionIndex].IsAnswered = true;
 			$("#linknext").k_enable();
 			$("#linkprevious").k_enable();
 		},
 		ShowUserReviewMode: function () {
+			$(".assessmentSubmit").hide();
 			var currQuestion = gRecordData.Questions[currentQuestionIndex];
 			var correctoption = currQuestion.Options.filter(function (item) {
 				return item.IsCorrect;
@@ -176,7 +179,7 @@ var _Assessment = (function () {
 			$("input[type='radio']").k_disable();
 
 			if (isIE11version) {
-				$("input[type='radio']").removeAttr("aria-disabled");
+				//$("input[type='radio']").removeAttr("aria-disabled");
 				this.SetCustomarialabelforRadio();
 				//$("input[type='radio']").removeAttr("disabled")
 			}
