@@ -262,6 +262,5 @@ window.addEventListener("scroll", function () {
     {
         $(".hintdoc").parent().show();
     }
-
 }, false);
 
