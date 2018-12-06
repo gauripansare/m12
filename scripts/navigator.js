@@ -14,7 +14,7 @@ var _Navigator = (function () {
         "p1": {
             pageId: "p1",
             prevPageId: "",
-            nextPageId: "p15",
+            nextPageId: "p2",
             dataurl: "p1.htm",
             isStartPage: true,
             hasActivity: false,
