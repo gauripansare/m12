@@ -196,4 +196,7 @@
     #footer-div {
         margin-left: 2%;
     }
+    .intro-content .hintDiv{
+        width: 70px !important;
+    }
 }

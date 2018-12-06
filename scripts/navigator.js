@@ -14,7 +14,7 @@ var _Navigator = (function () {
         "p1": {
             pageId: "p1",
             prevPageId: "",
-            nextPageId: "p2",
+            nextPageId: "p15",
             dataurl: "p1.htm",
             isStartPage: true,
             hasActivity: false,
@@ -383,7 +383,7 @@ var _Navigator = (function () {
                     $("#Summary").load("pagedata/Summary.htm", function () {
                         _Assessment.ShowSummary()
                         if (isChrome && !isAndroid) {
-                            $("h2.pageheading").attr("tabindex", "0");
+                            $("h2").attr("tabindex", "0");
                             $("h2").focus();
                         }
                         else {
