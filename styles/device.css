@@ -130,6 +130,7 @@
     }
     .header-content-dock .progressdiv{
         margin-top:4px;
+        margin-left: 0;
     }
 
     .header-content-dock .hintlinkspan{

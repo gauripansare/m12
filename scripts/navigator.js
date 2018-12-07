@@ -262,6 +262,9 @@ var _Navigator = (function () {
                     $(".main-content").html("");
                     $(".main-content").load(pageUrl, function () {
                         $(this).fadeTo(600, 1)
+
+                            
+                       
                         OnPageLoad();
                         if (_currentPageObject.pageId == "p2") {
                             $("#titleheader").focus();
@@ -311,6 +314,7 @@ var _Navigator = (function () {
                             //$(".hintlink").hide();
                             $("div#hintdiv").hide();
                         }
+
                         _NData[_currentPageObject.pageId].isLoaded = true;
                         _Navigator.GetBookmarkData();
                     });
