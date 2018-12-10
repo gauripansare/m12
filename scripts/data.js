@@ -137,10 +137,6 @@ var _PData = {
                 "height": "3.5175879396984926%",
                 "top": "7.872696817420436%",
                 "left": "31.344221105527637%",
-                "widthPX": "61px",
-                "heightPX": "25px",
-                "topPX": "47px",
-                "leftPX": "249.5px",
                  action:"next",
                  accessText: "Run",
               }
@@ -156,10 +152,6 @@ var _PData = {
                 "height": "7.370184254606365%",
                 "top": "7.708099978653031%",
                 "left": "31.08729070155465%",
-                "widthPX": "84.00694px",
-                "heightPX": "44px",
-                "topPX": "46.00694274902344px",
-                "leftPX": "247.44793701171875px",
                  action:"inputcheck",
                  accessText: "Run",
               }

@@ -117,8 +117,9 @@ var _ModuleCommon = (function () {
                     }
                 }
             }
-
+            if(!_Navigator.IsPresenterMode()){
             this.ShowFeedbackReviewMode();
+            }
             $(".divHotSpot").addClass("disabled")
             $(".divHotSpot").attr("aria-disabled", "true");
             $(".divHotSpot").attr("disabled", "true");
@@ -180,7 +181,9 @@ var _ModuleCommon = (function () {
 
                 }
             }
+            if(!_Navigator.IsPresenterMode()){
             this.ShowFeedbackReviewMode();
+            }
         },
 
         GetReviewData: function () {
@@ -391,7 +394,9 @@ var _ModuleCommon = (function () {
             if (_Navigator.IsAnswered()) {
                 this.ViewTextEntryInReviewMode();
                 this.DisplayInstructorReviewMode();
+                if(!_Navigator.IsPresenterMode()){
                 this.ShowFeedbackReviewMode();
+                }
 
             }
             if (_Navigator.GetCurrentPage().hinturl != undefined) {
@@ -471,6 +476,13 @@ var _ModuleCommon = (function () {
                             $("#" + pageData.inputSettings[i].inputid).val(pageData.inputSettings[i].answerset);
                         }
                     }
+                    if (pageData.ImageHotSpots != undefined && currentPageData.pageId == "p15") {
+                        var posObj = pageData.ImageHotSpots.Hotspots[0];
+                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:39px;height:39px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:39px;height:35px;' /></div>";
+                        $(".divHotSpot").addClass("hotspotclicked");
+                        $(".divHotSpot").addClass("disabled");
+                        appendImage.append(_div);
+                    }
                 }
                 else if (pageData.ImageHotSpots != undefined) {
                     var posObj = pageData.ImageHotSpots.Hotspots[0];
@@ -479,7 +491,7 @@ var _ModuleCommon = (function () {
                     $(".divHotSpot").addClass("disabled");
                     appendImage.append(_div);
                 }
-                if (pageData.correctfeedback != undefined) {
+                /*if (pageData.correctfeedback != undefined) {
                     $("#div_feedback").show();
                     $("#div_feedback .div_fdkcontent").load(_Settings.dataRoot + pageData.correctfeedback, function () {
                         $("#div_feedback p:first").attr("tabindex", "-1")
@@ -488,7 +500,7 @@ var _ModuleCommon = (function () {
                             $("#div_feedback p:first").attr("role", "text");
                         }
                     });
-                }
+                }*/
             }
             $("#linknext").k_enable();
             _Navigator.SetPageStatus(true);
