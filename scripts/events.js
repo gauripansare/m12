@@ -238,7 +238,7 @@ window.onunload = function () {
     _ScormUtility.End();
 }
 window.addEventListener("scroll", function () {
-    //if (!isIpad) {
+    if (!isIpad) {
         var currPage = _Navigator.GetCurrentPage();
         if (currPage.pageId == "p1")
             return;
@@ -260,6 +260,6 @@ window.addEventListener("scroll", function () {
         else {
             $(".hintdoc").parent().show();
         }
-    //}
+    }
 }, false);
 
