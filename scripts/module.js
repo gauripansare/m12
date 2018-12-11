@@ -411,7 +411,7 @@ var _ModuleCommon = (function () {
             if (isFirefox) {
                 $('#footer-navigation').css('display', 'table');
             }
-            $("h2.pageheading").attr("tabindex", "-1");
+            
             if (isIE11version) {
                 $(".hintlink").css("padding-left", "68px");
                 $("input[type='text']").css("border", "none");

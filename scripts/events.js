@@ -44,7 +44,7 @@ $(document).on("click", ".hintdoc", function (event) {
 
         }
     }
-    if(touchend1){
+    if (touchend1) {
         $(this).mouseout();
         touchend1 = false;
     }
@@ -53,7 +53,7 @@ $(document).on("click", ".hintdoc", function (event) {
 });
 $(document).on("click", ".hintlink", function (event) {
     if ($(this).k_IsDisabled()) return;
-   var open = "open;"
+    var open = "open;"
     if ($(this).hasClass("expanded")) {
         $(this).removeClass("expanded")
         $(this).attr("aria-expanded", "false")
@@ -70,13 +70,13 @@ $(document).on("click", ".hintlink", function (event) {
             if (iOS) {
                 $(".hintcontainer .hintcontent").find("p:first").attr("role", "text")
             }
-            $(".hintcontainer .hintcontent").find("p:first").focus(); 
+            $(".hintcontainer .hintcontent").find("p:first").focus();
         });
     }
     if (_Navigator.IsRevel()) {
         LifeCycleEvents.OnInteraction("Hint button click. Hint " + open)
     }
-     if(touchend){
+    if (touchend) {
         $(this).mouseout();
         touchend = false;
     }
@@ -87,7 +87,7 @@ $(document).on("click", ".closehintdoc", function (event) {
     if ($(this).k_IsDisabled()) return;
     $(".hintdoc").removeClass("expanded")
     $(".hintcontainerdoc").hide();
-   
+
     if (_Navigator.IsRevel()) {
         LifeCycleEvents.OnInteraction("Hint button click. Hint closed")
     }
@@ -107,7 +107,7 @@ $(document).on("click", ".closehintlink", function (event) {
 
 $(document).on("click", "#submitbtn", function (event) {
     _ModuleCommon.OnSubmit();
-    
+
 });
 
 $(document).on("click", "#continuebtn", function (event) {
@@ -238,30 +238,28 @@ window.onunload = function () {
     _ScormUtility.End();
 }
 window.addEventListener("scroll", function () {
-    if(!isIpad){
-    var currPage = _Navigator.GetCurrentPage();
-    if (currPage.pageId == "p1" )
-        return;
-    var target = $(".header-content-dock");
+    //if (!isIpad) {
+        var currPage = _Navigator.GetCurrentPage();
+        if (currPage.pageId == "p1")
+            return;
+        var target = $(".header-content-dock");
 
-    if (window.pageYOffset > $("#header-content").height() - 10) {
-        var width = $("#wrapper").width();
-        target.css({ "visibility": "visible", "top": "0px", "width": width + "px" })
-    }
-    else if (window.pageYOffset < $("#header-content").height() - 10) {
-        target.css({ "visibility": "hidden", "top": "-80px"})
-        $(".hintcontainerdoc").hide();
-        $(".hintdoc").removeClass("expanded")
+        if (window.pageYOffset > $("#header-content").height() - 10) {
+            var width = $("#wrapper").width();
+            target.css({ "visibility": "visible", "top": "0px", "width": width + "px" })
+        }
+        else if (window.pageYOffset < $("#header-content").height() - 10) {
+            target.css({ "visibility": "hidden", "top": "-80px" })
+            $(".hintcontainerdoc").hide();
+            $(".hintdoc").removeClass("expanded")
 
-    }
-    if (_Navigator.GetCurrentPage().pageId == _Navigator.GetQuizPageId() || currPage.hinturl ==undefined || currPage.hinturl == "" )
-    {
-        $(".hintdoc").parent().hide();
-    }
-    else
-    {
-        $(".hintdoc").parent().show();
-    }
-}
+        }
+        if (_Navigator.GetCurrentPage().pageId == _Navigator.GetQuizPageId() || currPage.hinturl == undefined || currPage.hinturl == "") {
+            $(".hintdoc").parent().hide();
+        }
+        else {
+            $(".hintdoc").parent().show();
+        }
+    //}
 }, false);
 

@@ -626,3 +626,6 @@ input[type="text"]{
 .summaryquestion legend {
     width: 100%;
 }
+.activity {
+    overflow: auto;
+}

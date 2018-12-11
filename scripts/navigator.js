@@ -158,7 +158,9 @@ var _Navigator = (function () {
     var _StateData = {}
 
     function OnPageLoad() {
-
+        $("h2.pageheading").attr("tabindex", "-1");
+        $(".hintcontainer").hide()
+        $(".header-content-dock").css({ "visibility": "hidden" });
         $(".hintcontainer").hide()
         $(".hintlink").removeClass("expanded");
         $(".hintlink").attr("aria-expanded", "false")
@@ -199,7 +201,7 @@ var _Navigator = (function () {
         },
         LoadPage: function (pageId, jsonObj) {
             $(".hintcontainer").hide();
-            $(".header-content-dock").css({"visibility":"hidden"});
+            
             if (_Navigator.IsRevel() && _currentPageId != undefined && _currentPageId != "") {
                 LifeCycleEvents.OnUnloadFromPlayer()
             }
@@ -221,6 +223,7 @@ var _Navigator = (function () {
             $("#header-title").show();
             $("footer").show();
 
+            $('html,body').css({ scrollTop: 0 })
             if (_currentPageObject.isStartPage != undefined && _currentPageObject.isStartPage) {
                 $("#linkprevious").k_disable();
                 $("#linknext").k_enable();
@@ -255,7 +258,8 @@ var _Navigator = (function () {
             if (_currentPageObject.isStartPage) {
                 $(".main-content").load(pageUrl, function () {
                     OnPageLoad();
-                    $("h1.pageheading").focus();
+                    //setReader("header1");
+                    $("#header1").focus();
                 });
             } else {
                 $(".main-content").fadeTo(250, 0.25, function () {
@@ -283,8 +287,6 @@ var _Navigator = (function () {
                             else {
                                 $("#progressdiv").focus();
                             }
-                            // setReader("progressdiv");
-
                         }
                         if (_Navigator.IsPresenterMode() && (_currentPageObject.pageId != quizpageid )) {
                             _ModuleCommon.PresenterMode();
@@ -293,6 +295,8 @@ var _Navigator = (function () {
                         if (_currentPageId == quizpageid)//  change to assessment id
                         {
                             _Assessment.ShowQuestion();
+                            $("h2.pageheading").attr("tabindex", "0");
+                            $("h2").focus();
                         }
                         $("#hintdiv").show();
                         if (_currentPageObject.hinturl == undefined) {
