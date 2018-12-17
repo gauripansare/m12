@@ -252,6 +252,7 @@ window.addEventListener("scroll", function () {
             target.css({ "visibility": "hidden", "top": "-80px" })
             $(".hintcontainerdoc").hide();
             $(".hintdoc").removeClass("expanded")
+        $(".header-content-dock").find(".presentationModeFooter").hide();
 
         }
         if (_Navigator.GetCurrentPage().pageId == _Navigator.GetQuizPageId() || currPage.hinturl == undefined || currPage.hinturl == "") {
@@ -260,6 +261,11 @@ window.addEventListener("scroll", function () {
         else {
             $(".hintdoc").parent().show();
         }
+if(_Navigator.IsPresenterMode())
+    {
+        $(".header-content-dock").find(".presentationModeFooter").show();
+        $(".header-content-dock .intro-content").css({"margin-top":"30px"})
+    }
     }
 }, false);
 

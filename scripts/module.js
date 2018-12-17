@@ -852,13 +852,12 @@ var _ModuleCommon = (function () {
         InputChek: function () {
 
         },
-        AppendFooter: function () {
-            if ($(".presentationModeFooter").length == 0) {
-                var str = '<div class="presentationModeFooter">Presentation Mode</div>';
-                $("footer").append($(str));
+        AppendFooter: function () {           
+                $("#header-progress .presentationModeFooter").show();             
+                
                 $("footer").show();
-                $("#linknext").k_enable();
-            }
+                $("#linknext").k_enable();           
+            
         },
         AppendScormReviewFooter: function () {
             if ($(".ScormReviewFooter").length == 0) {
