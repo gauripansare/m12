@@ -33,13 +33,15 @@ var _ScormUtility = (function () {
         SetBookMark: function (bookmark) {
             if (!_Navigator.IsScorm())
                 return;
-            var setlessonLocation = scorm.set("cmi.location", bookmark+ "");
+            var setlessonLocation = scorm.set("cmi.location", bookmark + "");
+            scorm.save();
         },
 
         SetSuspendData: function (suspend_data) {
             if (!_Navigator.IsScorm())
                 return;
             scorm.set("cmi.suspend_data", suspend_data);
+            scorm.save();
         },
 
         GetSuspendData: function () {
@@ -56,15 +58,18 @@ var _ScormUtility = (function () {
                 return;
             console.log("Complete");
             var callSucceeded = scorm.set("cmi.completion_status", "completed");
+            scorm.set("cmi.mode","review")
+            scorm.save();
         },
 
         SetScore: function (scoreval) {
             if (!_Navigator.IsScorm())
                 return;
-            var minscr = scorm.set("cmi.score.min", "80.00");
+            var minscr = scorm.set("cmi.score.min", "10.00");
             var maxscr = scorm.set("cmi.score.max", "100.00");
             var setStatus = scorm.set("cmi.score.raw", "" + scoreval);
-        },
+            scorm.save();
+        },		
         IsScormReviewMode : function() {
             return scorm.get('cmi.mode') == "review";
         }

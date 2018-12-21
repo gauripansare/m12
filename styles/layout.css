@@ -110,7 +110,7 @@ button:active, textarea:active, select:active,
 }
 
 #wrapper {
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     border: 1px solid #cccccc;
     border-top: 0px;
