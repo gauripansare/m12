@@ -117,9 +117,8 @@ var _ModuleCommon = (function () {
                     }
                 }
             }
-            if(!_Navigator.IsPresenterMode()){
             this.ShowFeedbackReviewMode();
-            }
+            
             $(".divHotSpot").addClass("disabled")
             $(".divHotSpot").attr("aria-disabled", "true");
             $(".divHotSpot").attr("disabled", "true");
@@ -181,9 +180,8 @@ var _ModuleCommon = (function () {
 
                 }
             }
-            if(!_Navigator.IsPresenterMode()){
             this.ShowFeedbackReviewMode();
-            }
+            
         },
 
         GetReviewData: function () {
@@ -394,9 +392,8 @@ var _ModuleCommon = (function () {
             if (_Navigator.IsAnswered()) {
                 this.ViewTextEntryInReviewMode();
                 this.DisplayInstructorReviewMode();
-                if(!_Navigator.IsPresenterMode()){
                 this.ShowFeedbackReviewMode();
-                }
+                
 
             }
             if (_Navigator.GetCurrentPage().hinturl != undefined) {
@@ -458,7 +455,7 @@ var _ModuleCommon = (function () {
             }
         },
         PresenterMode: function () {
-            var currentPageData = _Navigator.GetCurrentPage();
+            /*var currentPageData = _Navigator.GetCurrentPage();
             var pageData = this.GetPageDetailData();
 
             var appendImage = $(".wrapperimage");
@@ -491,20 +488,11 @@ var _ModuleCommon = (function () {
                     $(".divHotSpot").addClass("disabled");
                     appendImage.append(_div);
                 }
-                /*if (pageData.correctfeedback != undefined) {
-                    $("#div_feedback").show();
-                    $("#div_feedback .div_fdkcontent").load(_Settings.dataRoot + pageData.correctfeedback, function () {
-                        $("#div_feedback p:first").attr("tabindex", "-1")
-                        $("#div_feedback p:first").attr("role", "text");
-                        if (isIOS) {
-                            $("#div_feedback p:first").attr("role", "text");
-                        }
-                    });
-                }*/
             }
             $("#linknext").k_enable();
             _Navigator.SetPageStatus(true);
             _Navigator.UpdateProgressBar();
+            */
         },
         ApplycontainerWidth: function () {
 

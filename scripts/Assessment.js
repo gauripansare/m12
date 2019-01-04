@@ -114,7 +114,7 @@ var _Assessment = (function () {
 				this.ShowQuestionPresenterMode();
 				$("#linknext").k_enable()
 			}
-			if (gRecordData.Status == "Completed" || gRecordData.Questions[currentQuestionIndex].IsAnswered) {
+			if (gRecordData.Questions[currentQuestionIndex].IsAnswered) {
 				this.ShowUserReviewMode();
 			}
 			/*
@@ -132,7 +132,7 @@ var _Assessment = (function () {
 			_Navigator.GetBookmarkData();
 		},
 		ShowQuestionPresenterMode: function () {
-			$(".assessmentSubmit").hide();
+			/*$(".assessmentSubmit").hide();
 			var currQuestion = gRecordData.Questions[currentQuestionIndex];
 			var correctoption = currQuestion.Options.filter(function (item) {
 				return item.IsCorrect;
@@ -145,7 +145,7 @@ var _Assessment = (function () {
 			iscorrectimg.attr({ "alt": "", "aria-hidden": "true" });
 			iscorrectimg.closest("span").show();
 			iscorrectimg.attr("aria-label", "Correct option selected");
-			gRecordData.Questions[currentQuestionIndex].IsAnswered = true;
+			gRecordData.Questions[currentQuestionIndex].IsAnswered = true;*/
 			$("#linknext").k_enable();
 			$("#linkprevious").k_enable();
 		},
