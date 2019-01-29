@@ -30,6 +30,9 @@ jQuery.fn.extend({
         }
         return;
     },
+    link_k_disable: function() {
+        return this.addClass('disabled').attr("aria-disabled","true");
+    },
     k_IsDisabled: function () {
         if (this.hasClass('disabled')) { return true; } else { return false; }
     }
@@ -75,6 +78,7 @@ var _ModuleCommon = (function () {
                 }
                 if (fdkurl != undefined && fdkurl != "") {
                     fdkurl = _Settings.dataRoot + fdkurl;
+                    $("#div_feedback").removeAttr("aria-hidden");
                     $("#div_feedback").show();
                     $("#div_feedback").css("display", "inline-block");
                     $("#div_feedback .div_fdkcontent").load(fdkurl, function () {
@@ -588,6 +592,7 @@ var _ModuleCommon = (function () {
             var pageData = this.GetPageDetailData();
             var fdbkUrl = _Settings.dataRoot + "feedbackdata/" + pageData.EmbedSettings.feedbackurl;
             $("input").k_disable();
+            $("#div_feedback").removeAttr("aria-hidden");
             $("#div_feedback").show();
             $("#div_feedback").css("display", "inline-block");
             $("#div_feedback .div_fdkcontent").load(fdbkUrl, function () {
@@ -629,6 +634,7 @@ var _ModuleCommon = (function () {
             var fdbkUrl = _Settings.dataRoot + "feedbackdata/" + url;
             $("input").k_disable();
             $(".divHotSpot").k_disable();
+            $("#div_feedback").removeAttr("aria-hidden");
             $("#div_feedback").show();
             $("#div_feedback").css("display", "inline-block");
             $("#div_feedback .div_fdkcontent").load(fdbkUrl, function () {
@@ -709,6 +715,7 @@ var _ModuleCommon = (function () {
                 this.SetTextEntryAccessibility(inputtextids);
                 _Navigator.GetBookmarkData();
             }
+            $("#div_feedback").removeAttr("aria-hidden");
             $("#div_feedback").show();
             $("#div_feedback").css("display", "inline-block");
             $("#div_feedback .div_fdkcontent").load(fdbkurl, function () {
@@ -832,6 +839,7 @@ var _ModuleCommon = (function () {
             $("input[type='text']").k_enable();
             $(".divHotSpot").k_enable();
             $("#div_feedback .div_fdkcontent").html("");
+            $("#div_feedback").attr("aria-hidden","true");
             $("#div_feedback").hide();
             $(".pageheading").attr("tabindex", "-1")
             window.scrollTo(0, document.body.scrollHeight)

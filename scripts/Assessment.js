@@ -128,7 +128,7 @@ var _Assessment = (function () {
 				$("#linknext").k_enable()
 			}
 			_Navigator.UpdateProgressBar();
-			$(".assessmentSubmit").k_disable();
+			$(".assessmentSubmit").link_k_disable();
 			_Navigator.GetBookmarkData();
 		},
 		ShowQuestionPresenterMode: function () {
