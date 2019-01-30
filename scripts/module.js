@@ -392,7 +392,7 @@ var _ModuleCommon = (function () {
                     $("#div_feedback").hide();
                 }
             }
-            $("#submitbtn").k_disable();
+            $("#submitbtn").link_k_disable();
             if (_Navigator.IsAnswered()) {
                 this.ViewTextEntryInReviewMode();
                 this.DisplayInstructorReviewMode();
@@ -657,7 +657,7 @@ var _ModuleCommon = (function () {
         },
         OnSubmit: function () {
             $("input[type='text']").k_disable();
-            $("#submitbtn").k_disable();
+            $("#submitbtn").link_k_disable();
             if (_Navigator.IsAnswered())
                 return;
             var pageData = this.GetPageDetailData();
@@ -832,7 +832,7 @@ var _ModuleCommon = (function () {
                 $("input[type='text']").removeClass("correct").removeClass("incorrect");
                 $("label.Accessibility").remove();
                 $("input[type='text']").removeAttr("aria-hidden")
-                $("#submitbtn").k_disable();
+                $("#submitbtn").link_k_disable();
             }
             $("input[type='text'].incorrect").removeAttr("aria-hidden")
             $(".hotspotclicked").removeClass("hotspotclicked");

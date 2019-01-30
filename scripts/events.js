@@ -201,7 +201,7 @@ $(document).on('input', "input[type='text']", function (event) {
     if ($(this).val().length > 0)
         $("#submitbtn").k_enable();
     else
-        $("#submitbtn").k_disable();
+        $("#submitbtn").link_k_disable();
 });
 
 $(document).on("change", ".assessmentradio", function (event) {
