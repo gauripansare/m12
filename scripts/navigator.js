@@ -1,7 +1,7 @@
 ﻿//This api will contain navigation logic and page load.
 //It will also handle the question navigation if the page is having multiple questions.
 var _Navigator = (function () {
-    var packageType = "";//presenter/scorm/revel
+    var packageType = "presenter";//presenter/scorm/revel
     var isReviewMode = false;
     var _currentPageId = "";
     var _currentPageObject = {};
