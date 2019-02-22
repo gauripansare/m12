@@ -1,7 +1,7 @@
 ﻿//This api will contain navigation logic and page load.
 //It will also handle the question navigation if the page is having multiple questions.
 var _Navigator = (function () {
-    var packageType = "presenter";//presenter/scorm/revel
+    var packageType = "scorm";//presenter/scorm/revel
     var isReviewMode = false;
     var _currentPageId = "";
     var _currentPageObject = {};
@@ -290,6 +290,13 @@ var _Navigator = (function () {
                        
                         OnPageLoad();
                         if (_currentPageObject.pageId == "p2") {
+                            $("#titleheader").attr({tabindex: "-1", role: "heading"}).focus();
+                        }
+                        else{
+                            $("h2:first").attr({tabindex: "-1", role: "heading"}).focus();
+                        }
+                        /*
+                        if (_currentPageObject.pageId == "p2") {
                             $("#titleheader").focus();
                         }
                         else if ((isIphone || isAndroid) && _NData[_currentPageId].isLoaded != undefined && _NData[_currentPageId].isLoaded == true) {//iphone android on previous focus is set to header
@@ -306,7 +313,7 @@ var _Navigator = (function () {
                             else {
                                 $("#progressdiv").focus();
                             }
-                        }
+                        }*/
                         if (_Navigator.IsPresenterMode() && (_currentPageObject.pageId != quizpageid )) {
                             _ModuleCommon.PresenterMode();
                             $(".wrapperimage").find(".ariaHidden").attr("aria-hidden", "true");
@@ -321,13 +328,7 @@ var _Navigator = (function () {
                                 $("#Questioninfo").hide();
                                 $("#Summary").load("pagedata/Summary.htm", function () {
                                     _Assessment.ShowSummary();
-                                    if (isChrome && !isAndroid) {
-                                        $("h2.pageheading").attr("tabindex", "0");
-                                        $("h2").focus();
-                                    }
-                                    else {
-                                        $("#progressdiv").focus();
-                                    }
+                                    $("h2:first").attr({tabindex: "-1", role: "heading"}).focus();
                                     $("#linkprevious").k_enable();
 
                                 })
@@ -336,8 +337,7 @@ var _Navigator = (function () {
                             }
                             else {
                                 _Assessment.ShowQuestion();
-                                $("h2.pageheading").attr("tabindex", "-1");
-                                $("h2").focus();
+                                $("h2:first").attr({tabindex: "-1", role: "heading"}).focus();
                             }
                         }
                         $("#hintdiv").show();
@@ -439,13 +439,7 @@ var _Navigator = (function () {
                         Summarybookmark = true;
                         _Navigator.GetBookmarkData();
                         _Assessment.ShowSummary();
-                        if (isChrome && !isAndroid) {
-                            $("h2").attr("tabindex", "0");
-                            $("h2").focus();
-                        }
-                        else {
-                            $("#progressdiv").focus();
-                        }
+                        $("h2:first").attr({tabindex: "-1", role: "heading"}).focus();
                         $("#linkprevious").k_enable();
                         $("#Summary").find("input[type='radio']").attr("readonly", "readonly");
                         $(".question-band").find("img").attr("aria-hidden", "true");
